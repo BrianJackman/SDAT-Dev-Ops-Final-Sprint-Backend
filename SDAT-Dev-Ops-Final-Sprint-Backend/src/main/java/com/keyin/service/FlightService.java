@@ -14,19 +14,20 @@ public class FlightService {
         this.flightRepository = flightRepository;
     }
 
-    public List<Flight> getArrivingFlightsByAirportId(Long airportId) {
-        return flightRepository.findArrivingFlightsByAirportId(airportId);
+    public List<Flight> getAllFlights() {
+        return flightRepository.findAll();
     }
 
-    public List<Flight> getDepartingFlightsByAirportId(Long airportId) {
-        return flightRepository.findDepartingFlightsByAirportId(airportId);
+    public Flight addFlight(Flight flight) {
+        return flightRepository.save(flight);
     }
 
-    public List<Flight> filterFlightsByAirline(String airlineName) {
-        return flightRepository.findFlightsByAirline(airlineName);
+    public Flight updateFlight(Long id, Flight flight) {
+        flight.setId(id);
+        return flightRepository.save(flight);
     }
 
-    public List<Flight> filterFlightsByGate(String gate) {
-        return flightRepository.findFlightsByGate(gate);
+    public void deleteFlight(Long id) {
+        flightRepository.deleteById(id);
     }
 }

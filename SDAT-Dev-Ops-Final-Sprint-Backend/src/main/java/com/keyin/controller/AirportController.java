@@ -15,8 +15,23 @@ public class AirportController {
         this.airportService = airportService;
     }
 
-    @GetMapping("/city/{cityId}")
-    public List<Airport> getAirportsByCityId(@PathVariable Long cityId) {
-        return airportService.getAirportsByCityId(cityId);
+    @GetMapping
+    public List<Airport> getAllAirports() {
+        return airportService.getAllAirports();
+    }
+
+    @PostMapping
+    public Airport addAirport(@RequestBody Airport airport) {
+        return airportService.addAirport(airport);
+    }
+
+    @PutMapping("/{id}")
+    public Airport updateAirport(@PathVariable Long id, @RequestBody Airport airport) {
+        return airportService.updateAirport(id, airport);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteAirport(@PathVariable Long id) {
+        airportService.deleteAirport(id);
     }
 }
