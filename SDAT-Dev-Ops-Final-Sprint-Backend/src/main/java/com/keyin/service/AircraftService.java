@@ -17,4 +17,17 @@ public class AircraftService {
     public List<Aircraft> getAllAircraft() {
         return aircraftRepository.findAll();
     }
+
+    public Aircraft addAircraft(Aircraft aircraft) {
+        return aircraftRepository.save(aircraft);
+    }
+
+    public Aircraft updateAircraft(Long id, Aircraft aircraft) {
+        aircraft.setId(id);
+        return aircraftRepository.save(aircraft);
+    }
+
+    public void deleteAircraft(Long id) {
+        aircraftRepository.deleteById(id);
+    }
 }
