@@ -13,6 +13,8 @@ public class Flight {
     private LocalDateTime departureTime;
     private LocalDateTime arrivalTime;
 
+    private String gate;
+
     @ManyToOne
     @JoinColumn(name = "origin_airport_id")
     private Airport originAirport;
