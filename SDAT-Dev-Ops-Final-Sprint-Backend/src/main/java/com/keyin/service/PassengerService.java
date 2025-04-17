@@ -1,5 +1,6 @@
 package com.keyin.service;
 
+import com.keyin.model.Passenger;
 import com.keyin.repository.PassengerRepository;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,20 @@ public class PassengerService {
         this.passengerRepository = passengerRepository;
     }
 
-    public List<String> getAircraftByPassengerId(Long passengerId) {
-        return passengerRepository.findAircraftByPassengerId(passengerId);
+    public List<Passenger> getAllPassengers() {
+        return passengerRepository.findAll();
+    }
+
+    public Passenger addPassenger(Passenger passenger) {
+        return passengerRepository.save(passenger);
+    }
+
+    public Passenger updatePassenger(Long id, Passenger passenger) {
+        passenger.setId(id); 
+        return passengerRepository.save(passenger);
+    }
+
+    public void deletePassenger(Long id) {
+        passengerRepository.deleteById(id);
     }
 }

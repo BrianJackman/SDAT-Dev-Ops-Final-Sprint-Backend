@@ -14,14 +14,20 @@ public class AirportService {
         this.airportRepository = airportRepository;
     }
 
-    // Get all airports in a specific city
-    public List<Airport> getAirportsByCityId(Long cityId) {
-        return airportRepository.findAirportsByCityId(cityId);
+    public List<Airport> getAllAirports() {
+        return airportRepository.findAll();
     }
 
-    // Get all airports used by passengers (custom logic can be added later)
-    public List<Airport> getAirportsUsedByPassengers() {
-        // Placeholder for future implementation
-        return airportRepository.findAll();
+    public Airport addAirport(Airport airport) {
+        return airportRepository.save(airport);
+    }
+
+    public Airport updateAirport(Long id, Airport airport) {
+        airport.setId(id); 
+        return airportRepository.save(airport);
+    }
+
+    public void deleteAirport(Long id) {
+        airportRepository.deleteById(id);
     }
 }

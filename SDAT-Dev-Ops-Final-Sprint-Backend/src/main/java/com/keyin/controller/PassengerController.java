@@ -1,5 +1,6 @@
 package com.keyin.controller;
 
+import com.keyin.model.Passenger;
 import com.keyin.service.PassengerService;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,9 +15,23 @@ public class PassengerController {
         this.passengerService = passengerService;
     }
 
-    // Get all aircraft a passenger has traveled on
-    @GetMapping("/{passengerId}/aircraft")
-    public List<String> getAircraftByPassengerId(@PathVariable Long passengerId) {
-        return passengerService.getAircraftByPassengerId(passengerId);
+    @GetMapping
+    public List<Passenger> getAllPassengers() {
+        return passengerService.getAllPassengers();
+    }
+
+    @PostMapping
+    public Passenger addPassenger(@RequestBody Passenger passenger) {
+        return passengerService.addPassenger(passenger);
+    }
+
+    @PutMapping("/{id}")
+    public Passenger updatePassenger(@PathVariable Long id, @RequestBody Passenger passenger) {
+        return passengerService.updatePassenger(id, passenger);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deletePassenger(@PathVariable Long id) {
+        passengerService.deletePassenger(id);
     }
 }

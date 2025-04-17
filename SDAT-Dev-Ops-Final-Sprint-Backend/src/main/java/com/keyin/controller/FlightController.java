@@ -15,23 +15,23 @@ public class FlightController {
         this.flightService = flightService;
     }
 
-    @GetMapping("/arriving/{airportId}")
-    public List<Flight> getArrivingFlightsByAirportId(@PathVariable Long airportId) {
-        return flightService.getArrivingFlightsByAirportId(airportId);
+    @GetMapping
+    public List<Flight> getAllFlights() {
+        return flightService.getAllFlights();
     }
 
-    @GetMapping("/departing/{airportId}")
-    public List<Flight> getDepartingFlightsByAirportId(@PathVariable Long airportId) {
-        return flightService.getDepartingFlightsByAirportId(airportId);
+    @PostMapping
+    public Flight addFlight(@RequestBody Flight flight) {
+        return flightService.addFlight(flight);
     }
 
-    @GetMapping("/filter/airline")
-    public List<Flight> filterFlightsByAirline(@RequestParam String airlineName) {
-        return flightService.filterFlightsByAirline(airlineName);
+    @PutMapping("/{id}")
+    public Flight updateFlight(@PathVariable Long id, @RequestBody Flight flight) {
+        return flightService.updateFlight(id, flight);
     }
 
-    @GetMapping("/filter/gate")
-    public List<Flight> filterFlightsByGate(@RequestParam String gate) {
-        return flightService.filterFlightsByGate(gate);
+    @DeleteMapping("/{id}")
+    public void deleteFlight(@PathVariable Long id) {
+        flightService.deleteFlight(id);
     }
 }

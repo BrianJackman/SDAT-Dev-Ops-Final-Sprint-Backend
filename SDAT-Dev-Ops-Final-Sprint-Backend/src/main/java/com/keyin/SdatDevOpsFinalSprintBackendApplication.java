@@ -1,4 +1,4 @@
-package com.keyin.SDAT_Dev_Ops_Final_Sprint_Backend;
+package com.keyin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
