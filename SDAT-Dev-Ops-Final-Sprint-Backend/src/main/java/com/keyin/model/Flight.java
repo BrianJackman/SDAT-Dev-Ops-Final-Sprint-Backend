@@ -13,7 +13,7 @@ public class Flight {
     private LocalDateTime departureTime;
     private LocalDateTime arrivalTime;
 
-    private String gate;
+    private String gate; // Field for gate
 
     @ManyToOne
     @JoinColumn(name = "origin_airport_id")
@@ -58,6 +58,14 @@ public class Flight {
 
     public void setArrivalTime(LocalDateTime arrivalTime) {
         this.arrivalTime = arrivalTime;
+    }
+
+    public String getGate() { // Getter for gate
+        return gate;
+    }
+
+    public void setGate(String gate) { // Setter for gate
+        this.gate = gate;
     }
 
     public Airport getOriginAirport() {

@@ -1,5 +1,6 @@
 package com.keyin.controller;
 
+import com.keyin.dto.PassengerDTO;
 import com.keyin.model.Passenger;
 import com.keyin.service.PassengerService;
 import org.springframework.web.bind.annotation.*;
@@ -16,8 +17,13 @@ public class PassengerController {
     }
 
     @GetMapping
-    public List<Passenger> getAllPassengers() {
+    public List<PassengerDTO> getAllPassengers() {
         return passengerService.getAllPassengers();
+    }
+
+    @GetMapping("/{id}")
+    public PassengerDTO getPassengerById(@PathVariable Long id) {
+        return passengerService.getPassengerById(id);
     }
 
     @PostMapping
