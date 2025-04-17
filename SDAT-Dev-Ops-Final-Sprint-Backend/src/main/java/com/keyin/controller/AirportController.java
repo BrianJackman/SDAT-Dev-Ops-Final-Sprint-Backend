@@ -1,5 +1,6 @@
 package com.keyin.controller;
 
+import com.keyin.dto.AirportDTO;
 import com.keyin.model.Airport;
 import com.keyin.service.AirportService;
 import org.springframework.web.bind.annotation.*;
@@ -16,8 +17,13 @@ public class AirportController {
     }
 
     @GetMapping
-    public List<Airport> getAllAirports() {
+    public List<AirportDTO> getAllAirports() {
         return airportService.getAllAirports();
+    }
+
+    @GetMapping("/{id}")
+    public AirportDTO getAirportById(@PathVariable Long id) {
+        return airportService.getAirportById(id);
     }
 
     @PostMapping

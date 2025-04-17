@@ -1,5 +1,6 @@
 package com.keyin.controller;
 
+import com.keyin.dto.CityDTO;
 import com.keyin.model.City;
 import com.keyin.service.CityService;
 import org.springframework.web.bind.annotation.*;
@@ -16,8 +17,13 @@ public class CityController {
     }
 
     @GetMapping
-    public List<City> getAllCities() {
+    public List<CityDTO> getAllCities() {
         return cityService.getAllCities();
+    }
+
+    @GetMapping("/{id}")
+    public CityDTO getCityById(@PathVariable Long id) {
+        return cityService.getCityById(id);
     }
 
     @PostMapping

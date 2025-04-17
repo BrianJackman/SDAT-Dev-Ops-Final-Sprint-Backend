@@ -1,9 +1,11 @@
 package com.keyin.controller;
 
+import com.keyin.dto.FlightDTO;
 import com.keyin.model.Flight;
 import com.keyin.service.FlightService;
 import org.springframework.web.bind.annotation.*;
 
+import jakarta.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -16,17 +18,24 @@ public class FlightController {
     }
 
     @GetMapping
-    public List<Flight> getAllFlights() {
+    public List<FlightDTO> getAllFlights() {
         return flightService.getAllFlights();
     }
 
+    @GetMapping("/{id}")
+    public FlightDTO getFlightById(@PathVariable Long id) {
+        return flightService.getFlightById(id);
+    }
+
     @PostMapping
-    public Flight addFlight(@RequestBody Flight flight) {
+    public Flight addFlight(@Valid @RequestBody FlightDTO flightDTO) {
+        Flight flight = flightService.convertToEntity(flightDTO);
         return flightService.addFlight(flight);
     }
 
     @PutMapping("/{id}")
-    public Flight updateFlight(@PathVariable Long id, @RequestBody Flight flight) {
+    public Flight updateFlight(@PathVariable Long id, @Valid @RequestBody FlightDTO flightDTO) {
+        Flight flight = flightService.convertToEntity(flightDTO);
         return flightService.updateFlight(id, flight);
     }
 
