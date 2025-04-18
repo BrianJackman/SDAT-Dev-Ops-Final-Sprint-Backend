@@ -1,3 +1,8 @@
+// Author: Brian Jackman
+// Date: 2025/04/18
+// Project: SDAT & Dev Ops Final Sprint
+
+
 package com.keyin.dto;
 
 import jakarta.validation.constraints.NotBlank;
@@ -16,7 +21,7 @@ public class FlightDTO {
 
     private String gate;
 
-    // Getters and Setters
+
     public Long getId() {
         return id;
     }

@@ -1,3 +1,8 @@
+// Author: Brian Jackman
+// Date: 2025/04/18
+// Project: SDAT & Dev Ops Final Sprint
+
+
 package com.keyin.service;
 
 import com.keyin.dto.AircraftDTO;
@@ -16,26 +21,25 @@ public class AircraftService {
         this.aircraftRepository = aircraftRepository;
     }
 
-    // Get all aircrafts
     public List<AircraftDTO> getAllAircrafts() {
         return aircraftRepository.findAll().stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
     }
 
-    // Get an aircraft by ID
+
     public AircraftDTO getAircraftById(Long id) {
         Aircraft aircraft = aircraftRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Aircraft not found"));
         return convertToDTO(aircraft);
     }
 
-    // Add a new aircraft
+
     public Aircraft addAircraft(Aircraft aircraft) {
         return aircraftRepository.save(aircraft);
     }
 
-    // Update an existing aircraft
+
     public Aircraft updateAircraft(Long id, Aircraft aircraft) {
         Aircraft existingAircraft = aircraftRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Aircraft not found"));
@@ -45,7 +49,7 @@ public class AircraftService {
         return aircraftRepository.save(existingAircraft);
     }
 
-    // Delete an aircraft by ID
+
     public void deleteAircraft(Long id) {
         if (!aircraftRepository.existsById(id)) {
             throw new RuntimeException("Aircraft not found");
@@ -53,7 +57,7 @@ public class AircraftService {
         aircraftRepository.deleteById(id);
     }
 
-    // Convert Aircraft entity to AircraftDTO
+
     private AircraftDTO convertToDTO(Aircraft aircraft) {
         AircraftDTO aircraftDTO = new AircraftDTO();
         aircraftDTO.setId(aircraft.getId());
@@ -63,7 +67,7 @@ public class AircraftService {
         return aircraftDTO;
     }
 
-    // Convert AircraftDTO to Aircraft entity
+
     public Aircraft convertToEntity(AircraftDTO aircraftDTO) {
         Aircraft aircraft = new Aircraft();
         aircraft.setId(aircraftDTO.getId());

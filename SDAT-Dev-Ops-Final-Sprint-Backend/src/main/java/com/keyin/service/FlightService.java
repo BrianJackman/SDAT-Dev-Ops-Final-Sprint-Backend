@@ -1,3 +1,8 @@
+// Author: Brian Jackman
+// Date: 2025/04/18
+// Project: SDAT & Dev Ops Final Sprint
+
+
 package com.keyin.service;
 
 import com.keyin.dto.FlightDTO;
@@ -71,7 +76,7 @@ public class FlightService {
         return flightDTO;
     }
 
-    // New method to convert FlightDTO to Flight entity
+  
     public Flight convertToEntity(FlightDTO flightDTO) {
         Flight flight = new Flight();
         flight.setId(flightDTO.getId());

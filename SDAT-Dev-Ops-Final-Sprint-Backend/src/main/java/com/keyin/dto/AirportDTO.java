@@ -1,3 +1,8 @@
+
+// Author: Brian Jackman
+// Date: 2025/04/18
+// Project: SDAT & Dev Ops Final Sprint
+
 package com.keyin.dto;
 
 public class AirportDTO {
@@ -5,7 +10,7 @@ public class AirportDTO {
     private String name;
     private String code;
 
-    // Getters and Setters
+
     public Long getId() {
         return id;
     }

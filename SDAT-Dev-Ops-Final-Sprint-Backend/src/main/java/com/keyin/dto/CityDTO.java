@@ -1,3 +1,8 @@
+// Author: Brian Jackman
+// Date: 2025/04/18
+// Project: SDAT & Dev Ops Final Sprint
+
+
 package com.keyin.dto;
 
 import java.util.List;
@@ -7,9 +12,8 @@ public class CityDTO {
     private String name;
     private String state;
     private int population;
-    private List<AirportDTO> airports; // Reference to AirportDTO to avoid circular references
+    private List<AirportDTO> airports; 
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }

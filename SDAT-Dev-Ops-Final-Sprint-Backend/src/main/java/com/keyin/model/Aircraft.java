@@ -1,3 +1,8 @@
+// Author: Brian Jackman
+// Date: 2025/04/18
+// Project: SDAT & Dev Ops Final Sprint
+
+
 package com.keyin.model;
 
 import jakarta.persistence.*;
@@ -21,7 +26,7 @@ public class Aircraft {
     )
     private List<Passenger> passengers;
 
-    // Getters and Setters
+
     public Long getId() {
         return id;
     }
