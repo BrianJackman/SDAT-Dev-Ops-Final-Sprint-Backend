@@ -2,7 +2,6 @@
 // Date: 2025/04/18
 // Project: SDAT & Dev Ops Final Sprint
 
-
 package com.keyin.service;
 
 import com.keyin.dto.FlightDTO;
@@ -76,14 +75,24 @@ public class FlightService {
         return flightDTO;
     }
 
-  
     public Flight convertToEntity(FlightDTO flightDTO) {
         Flight flight = new Flight();
         flight.setId(flightDTO.getId());
         flight.setFlightNumber(flightDTO.getFlightNumber());
-        flight.setDepartureTime(LocalDateTime.parse(flightDTO.getDepartureTime(), FORMATTER));
-        flight.setArrivalTime(LocalDateTime.parse(flightDTO.getArrivalTime(), FORMATTER));
+        flight.setDepartureTime(parseDateTime(flightDTO.getDepartureTime()));
+        flight.setArrivalTime(parseDateTime(flightDTO.getArrivalTime()));
         flight.setGate(flightDTO.getGate());
         return flight;
+    }
+
+    private LocalDateTime parseDateTime(String dateTime) {
+        try {
+            // Try parsing with the default formatter (yyyy-MM-dd'T'HH:mm:ss)
+            return LocalDateTime.parse(dateTime, FORMATTER);
+        } catch (java.time.format.DateTimeParseException e) {
+            // Fallback to parsing without seconds (yyyy-MM-dd'T'HH:mm)
+            DateTimeFormatter fallbackFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+            return LocalDateTime.parse(dateTime, fallbackFormatter);
+        }
     }
 }
