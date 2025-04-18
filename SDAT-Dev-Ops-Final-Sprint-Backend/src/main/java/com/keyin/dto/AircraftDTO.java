@@ -1,3 +1,8 @@
+// Author: Brian Jackman
+// Date: 2025/04/18
+// Project: SDAT & Dev Ops Final Sprint
+
+
 package com.keyin.dto;
 
 public class AircraftDTO {
@@ -6,7 +11,7 @@ public class AircraftDTO {
     private String airlineName;
     private int numberOfPassengers;
 
-    // Getters and Setters
+
     public Long getId() {
         return id;
     }

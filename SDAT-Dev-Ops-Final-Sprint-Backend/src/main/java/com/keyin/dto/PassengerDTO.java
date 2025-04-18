@@ -1,3 +1,8 @@
+// Author: Brian Jackman
+// Date: 2025/04/18
+// Project: SDAT & Dev Ops Final Sprint
+
+
 package com.keyin.dto;
 
 public class PassengerDTO {
@@ -6,7 +11,7 @@ public class PassengerDTO {
     private String lastName;
     private String phoneNumber;
 
-    // Getters and Setters
+
     public Long getId() {
         return id;
     }

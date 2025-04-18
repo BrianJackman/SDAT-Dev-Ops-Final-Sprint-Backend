@@ -1,3 +1,9 @@
+// Author: Brian Jackman
+// Date: 2025/04/18
+// Project: SDAT & Dev Ops Final Sprint
+
+
+
 package com.keyin.model;
 
 import jakarta.persistence.*;
@@ -13,8 +19,7 @@ public class Flight {
     private LocalDateTime departureTime;
     private LocalDateTime arrivalTime;
 
-    private String gate; // Field for gate
-
+    private String gate;
     @ManyToOne
     @JoinColumn(name = "origin_airport_id")
     private Airport originAirport;
@@ -27,7 +32,7 @@ public class Flight {
     @JoinColumn(name = "aircraft_id")
     private Aircraft aircraft;
 
-    // Getters and Setters
+
     public Long getId() {
         return id;
     }
@@ -60,11 +65,11 @@ public class Flight {
         this.arrivalTime = arrivalTime;
     }
 
-    public String getGate() { // Getter for gate
+    public String getGate() { 
         return gate;
     }
 
-    public void setGate(String gate) { // Setter for gate
+    public void setGate(String gate) { 
         this.gate = gate;
     }
 
